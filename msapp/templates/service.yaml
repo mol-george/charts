@@ -1,0 +1,13 @@
+# SVC are the same regardless of the version
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.microservice.name }}
+  name: {{ .Values.microservice.name }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: {{ .Values.service.port }}
+  selector:
+    app: {{ .Values.microservice.name }}

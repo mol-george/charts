@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.microservice.name }}
+  name: {{ .Values.microservice.name }}-{{ .Values.microservice.version }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.microservice.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.microservice.name }}
+        version: {{ .Values.microservice.version }}
+    spec:
+      containers:
+        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          name: {{ .Values.microservice.name }}
+          imagePullPolicy:  {{ .Values.image.pullPolicy }}
+          env:
+            - name: VERSION
+              value: "{{ .Values.microservice.version }}"
+            {{ if .Values.nextapp }}
+            - name: NEXT_APP
+              value: "{{ .Values.nextapp }}"
+            {{ end }}
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          volumeMounts:
+            - name: downward
+              mountPath: /etc/downward
+      volumes:
+      - name: downward
+        downwardAPI:
+          items:
+          - path: "labels"
+            fieldRef:
+              fieldPath: metadata.labels
