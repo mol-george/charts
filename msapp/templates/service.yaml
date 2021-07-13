@@ -1,15 +1,13 @@
+# SVC are the same regardless of the version
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "msapp.fullname" . }}
   labels:
-    {{- include "msapp.labels" . | nindent 4 }}
+    app: {{ .Values.microservice.name }}
+  name: {{ .Values.microservice.name }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - port: {{ .Values.service.port }}
   selector:
-    {{- include "msapp.selectorLabels" . | nindent 4 }}
+    app: {{ .Values.microservice.name }}
