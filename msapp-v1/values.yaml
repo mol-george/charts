@@ -1,6 +1,5 @@
 microservice:
   name: msapp
-  version: v1
 
 nextapp: ""
 
