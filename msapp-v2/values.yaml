@@ -1,0 +1,19 @@
+microservice:
+  name: msapp
+
+nextapp: ""
+
+image:
+  repository: molgeorge/msapp
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  # tag: "aleph"
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
