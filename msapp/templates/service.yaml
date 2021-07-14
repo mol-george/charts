@@ -1,3 +1,4 @@
+{{ if not (lookup "v1" "Service" .Release.Namespace .Values.microservice.name) }}
 # SVC are the same regardless of the version
 apiVersion: v1
 kind: Service
@@ -11,3 +12,4 @@ spec:
   - port: {{ .Values.service.port }}
   selector:
     app: {{ .Values.microservice.name }}
+{{ end }}
