@@ -3,7 +3,7 @@ entries:
   msapp:
   - apiVersion: v2
     appVersion: v2
-    created: "2021-07-14T08:28:23.256029+01:00"
+    created: "2022-02-14T00:53:09.493109Z"
     description: A Helm chart for Kubernetes
     digest: ea184c0fa0ed623a524b51a1fb6a4ba5ae597f0b7fa2ed79a069d05ae5b0c7aa
     name: msapp
@@ -13,7 +13,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: v1
-    created: "2021-07-14T08:28:23.255763+01:00"
+    created: "2022-02-14T00:53:09.492901Z"
     description: A Helm chart for Kubernetes
     digest: b587a23d778eaacc59264db26492f734c537719ab8d2b3bda9e4c6084affec33
     name: msapp
@@ -21,4 +21,15 @@ entries:
     urls:
     - https://mol-george.github.io/charts/msapp-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-14T08:28:23.25453+01:00"
+  training:
+  - apiVersion: v2
+    appVersion: 0.3.0
+    created: "2022-02-14T00:53:09.493377Z"
+    description: training Helm chart
+    digest: 51dca5d7c3c217929cc14a8d0ddd143a39317403844f209f2a3092e35e9b3e35
+    name: training
+    type: application
+    urls:
+    - https://mol-george.github.io/charts/training-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-02-14T00:53:09.492484Z"
